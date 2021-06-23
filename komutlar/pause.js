@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const youtube = new YouTube('AIzaSyDPiusaRVhYxZVHhozAPxglJyBWRTo1ROw');
@@ -12,7 +12,7 @@ exports.run = async (client, message, args) => {
 
     var voiceChannel = message.member.voiceChannel;
         
-    const a = new RichEmbed()
+    const a = new MessageEmbed()
     .setColor("RANDOM")
     .setAuthor(message.author.username, message.author.avatarURL)
     .setDescription(`Please Enter a Channel`)
@@ -22,14 +22,14 @@ exports.run = async (client, message, args) => {
   if (serverQueue && serverQueue.playing) {
     serverQueue.playing = false;
     serverQueue.connection.dispatcher.pause();
-        const asjdhsaasjdhaadssad = new RichEmbed()
+        const asjdhsaasjdhaadssad = new MessageEmbed()
     .setColor("RANDOM")
     .setAuthor(message.author.username, message.author.avatarURL)
     .setDescription(`Playing Song Paused`)
     .setFooter('Rota Music')
       return message.channel.send(asjdhsaasjdhaadssad);
     }
-    const b = new RichEmbed()
+    const b = new MessageEmbed()
     .setColor("RANDOM")
     .setAuthor(message.author.username, message.author.avatarURL)
     .setDescription(`No Song Playing Right Now`)
