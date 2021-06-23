@@ -13,19 +13,19 @@ exports.run = async (client, message, args) => {
 
     var voiceChannel = message.member.voiceChannel;
         
-    const err0 = new RichEmbed()
+    const err0 = new MessageEmbed()
     .setColor("RANDOM")
     .setAuthor(message.author.username, message.author.avatarURL)
     .setDescription(`Please Enter a Channel`)
     .setFooter('Rota Music')
     if (!voiceChannel) return message.channel.send(err0);
-    const err05 = new RichEmbed()
+    const err05 = new MessageEmbed()
     .setColor("RANDOM")
     .setAuthor(message.author.username, message.author.avatarURL)
     .setDescription(`No Song Playing Right Now`)
     .setFooter('Rota Music')
     if (!serverQueue) return message.channel.send(err05);
-    const songSkip = new RichEmbed()
+    const songSkip = new MessageEmbed()
     .setColor("RANDOM")
     .setAuthor(message.author.username, message.author.avatarURL)
     .setDescription(`Song Passed`)
