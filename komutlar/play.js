@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const youtube = new YouTube('AIzaSyDPiusaRVhYxZVHhozAPxglJyBWRTo1ROw');
@@ -14,14 +14,14 @@ exports.run = async (client, message, args) => {
 
     var voiceChannel = message.member.voiceChannel; 
 
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
     .setColor("RANDOM")
     .setAuthor(message.author.username, message.author.avatarURL)
     .setDescription("Please Paste a Song Name or URL")
     .setFooter('Rota Music')
     if (!args[0]) return message.channel.send(embed);
         
-    const voiceChannelAdd = new RichEmbed()
+    const voiceChannelAdd = new MessageEmbed()
     .setColor("RANDOM")
     .setAuthor(message.author.username, message.author.avatarURL)
     .setDescription(`Please Switch to an Audio Channel`)
@@ -30,7 +30,7 @@ exports.run = async (client, message, args) => {
 
     var permissions = voiceChannel.permissionsFor(client.user);
     if (!permissions.has('CONNECT')) {
-      const warningErr = new RichEmbed()
+      const warningErr = new MessageEmbed()
     .setColor("RANDOM")
     .setAuthor(message.author.username, message.author.avatarURL)
     .setDescription(`I Don't Have Enough Entitlements to Join Audio Channels`)
@@ -38,7 +38,7 @@ exports.run = async (client, message, args) => {
       return message.channel.send(warningErr);
     }
     if (!permissions.has('SPEAK')) {
-      const musicErr = new RichEmbed()
+      const musicErr = new MessageEmbed()
     .setColor("RANDOM")
     .setAuthor(message.author.username, message.author.avatarURL)
     .setDescription(`I Can't Play Song Because I Don't Have Speech`)
@@ -52,7 +52,7 @@ exports.run = async (client, message, args) => {
         var video2 = await youtube.getVideoByID(video.id);
         await handleVideo(video2, message.message, voiceChannel, true);
       }
-      const PlayingListAdd = new RichEmbed()
+      const PlayingListAdd = new MessageEmbed()
     .setColor("RANDOM")
     .setAuthor(message.author.username, message.author.avatarURL)
     .setDescription(`[${playlist.title}](https://www.youtube.com/watch?v=${playlist.id}) Added to Playback Queue`)
@@ -70,7 +70,7 @@ exports.run = async (client, message, args) => {
           var video = await youtube.getVideoByID(videos[r - 1].id);
         } catch (err) {
           console.error(err);
-          const songNope = new RichEmbed()
+          const songNope = new MessageEmbed()
     .setColor("RANDOM")
     .setAuthor(message.author.username, message.author.avatarURL)
     .setDescription(`No Song Found With The Name You Searched For`)
@@ -114,14 +114,14 @@ exports.run = async (client, message, args) => {
           } catch (error) {
             console.error(`Couldn't Enter Audio Channel ERROR: ${error}`);
             queue.delete(message.guild.id);
-            return message.channel.send(new Discord.RichEmbed().setColor('RANDOM').setDescription(`Couldn't Enter Audio Channel ERROR: **${error}**`));
+            return message.channel.send(new Discord.MessageEmbed().setColor('RANDOM').setDescription(`Couldn't Enter Audio Channel ERROR: **${error}**`));
           }
         } else {
           serverQueue.songs.push(song);
           
           if (playlist) return undefined;
       
-          const songListBed = new RichEmbed()
+          const songListBed = new MessageEmbed()
           .setColor("RANDOM")
           .setAuthor(message.author.username, message.author.avatarURL)
           .setDescription(`[${song.title}](https://www.youtube.com/watch?v=${song.id}) Song Queued`)
@@ -155,7 +155,7 @@ exports.run = async (client, message, args) => {
             y = `${song.durationh || 0}:${song.durationm || 0}:${song.durations || 0}`
         }
 
-        const playingBed = new RichEmbed()
+        const playingBed = new MessageEmbed()
         .setColor("RANDOM")
         .setAuthor(message.author.username, message.author.avatarURL)
         .setDescription(`[${song.title}](${song.url})`)
