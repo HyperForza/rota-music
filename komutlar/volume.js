@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const youtube = new YouTube('AIzaSyDPiusaRVhYxZVHhozAPxglJyBWRTo1ROw');
@@ -13,24 +13,24 @@ exports.run = async (client, message, args) => {
 
     var voiceChannel = message.member.voiceChannel;
         
-      const asd1 = new Discord.RichEmbed()
+      const asd1 = new Discord.MessageEmbed()
     .setColor("RANDOM")
     .setAuthor(message.author.username, message.author.avatarURL)
     .setDescription(`Please Enter a Channel`)
     .setFooter('Rota Music')
     if (!message.member.voiceChannel) return message.channel.send(asd1);
-    const asd2 = new Discord.RichEmbed()
+    const asd2 = new Discord.MessageEmbed()
     .setColor("RANDOM")
     .setAuthor(message.author.username, message.author.avatarURL)
     .setDescription(`No Song Playing Right Now`)
     .setFooter('Rota Music')
     if (!serverQueue) return message.channel.send(asd2);
 
-    if (!args[0]) return message.channel.send(new Discord.RichEmbed().setColor('RANDOM').setDescription("Type a Number to Adjust the Volume"));
+    if (!args[0]) return message.channel.send(new Discord.MessageEmbed().setColor('RANDOM').setDescription("Type a Number to Adjust the Volume"));
     serverQueue.volume = args[0];
-    if (args[0] > 10) return message.channel.send(new Discord.RichEmbed().setColor('RANDOM').setDescription(`The volume can be adjusted to a maximum of \`10\`.`))
+    if (args[0] > 10) return message.channel.send(new Discord.MessageEmbed().setColor('RANDOM').setDescription(`The volume can be adjusted to a maximum of \`10\`.`))
     serverQueue.connection.dispatcher.setVolumeLogarithmic(args[0]);
-    const volumeLevelEdit = new Discord.RichEmbed()
+    const volumeLevelEdit = new Discord.MessageEmbed()
     .setColor("RANDOM")
     .setAuthor(message.author.username, message.author.avatarURL)
     .setDescription(`Adjusted Volume: **${args[0]}**`)
