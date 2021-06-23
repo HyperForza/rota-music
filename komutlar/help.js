@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 exports.run = async (client, message, args) => { 
 let prefix = '!'
-let müzik = new Discord.RichEmbed()  
+let müzik = new Discord.MessageEmbed()  
 .setAuthor(message.author.username, message.author.avatarURL)
 .setColor('RANDOM')
 .addField('Rota Music | Help Panel')
