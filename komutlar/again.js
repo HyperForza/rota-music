@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const youtube = new YouTube('AIzaSyDPiusaRVhYxZVHhozAPxglJyBWRTo1ROw');
@@ -12,13 +12,13 @@ exports.run = async (client, message, args) => {
 
     var voiceChannel = message.member.voiceChannel;
         
-    const e = new RichEmbed()
+    const e = new MessageEmbed()
     .setColor("RANDOM")
     .setAuthor(message.author.username, message.author.avatarURL)
     .setDescription(`Please Enter a Channel`)
     .setFooter('Rota Music')
   if (!message.member.voiceChannel) return message.channel.send(e);
-  const p = new RichEmbed()
+  const p = new MessageEmbed()
     .setColor("RANDOM")
     .setAuthor(message.author.username, message.author.avatarURL)
     .setDescription(`No Song Playing Right Now`)
@@ -31,7 +31,7 @@ exports.run = async (client, message, args) => {
     var v = await pla.getVideos();*/
     var vi2 = await youtube.getVideoByID(u.id);
     await handleVideo(vi2, message, voiceChannel, true);
-  const PlayingListAdd = new RichEmbed()
+  const PlayingListAdd = new MessageEmbed()
     .setColor("RANDOM")
     .setAuthor(message.author.username, message.author.avatarURL)
     .setDescription(`[${u.title}](https://www.youtube.com/watch?v=${u.id}) The Song Will Be Played Again When Finished`)
@@ -71,14 +71,14 @@ exports.run = async (client, message, args) => {
       } catch (error) {
         console.error(`I Couldn't Enter Audio Channel ERROR: ${error}`);
         queue.delete(message.guild.id);
-        return message.channel.send(new Discord.RichEmbed().setColor('RANDOM').setDescription(`I Couldn't Enter Audio Channel ERROR: **${error}**`));
+        return message.channel.send(new Discord.MessageEmbed().setColor('RANDOM').setDescription(`I Couldn't Enter Audio Channel ERROR: **${error}**`));
       }
     } else {
       serverQueue.songs.push(song);
       
       if (playlist) return undefined;
   
-      const songListBed = new RichEmbed()
+      const songListBed = new MessageEmbed()
       .setColor("RANDOM")
       .setAuthor(message.author.username, message.author.avatarURL)
       .setDescription(`[${song.title}](https://www.youtube.com/watch?v=${song.id}) Added to Queue`)
@@ -112,7 +112,7 @@ exports.run = async (client, message, args) => {
         y = `${song.durationh || 0}:${song.durationm || 0}:${song.durations || 0}`
     }
 
-    const playingBed = new RichEmbed()
+    const playingBed = new MessageEmbed()
         .setColor("RANDOM")
         .setAuthor(message.author.username, message.author.avatarURL)
         .setDescription(`[${song.title}](${song.url})`)
