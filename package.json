@@ -16,8 +16,8 @@
     "pokedex-api": "^1.1.2",
     "quick.db": "^7.1.1",
     "simple-youtube-api": "^5.2.1",
-    "ytdl-core": "^2.1.7"
-    "hello-express": "^0.0.1",
+    "ytdl-core": "^2.1.7",
+    "hello-express": "^0.0.1"
   },
   "engines": {
     "node": "14.x"
