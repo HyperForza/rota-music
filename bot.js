@@ -1,9 +1,18 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const ayarlar = require("./ayarlar.json");
+const chalk = require("chalk");
+const moment = require("moment");
+var Jimp = require("jimp");
 const { Client, Util } = require("discord.js");
+const fs = require("fs");
 const db = require("quick.db");
+const http = require("http");
+const express = require("express");
 require("./util/eventLoader.js")(client);
+const path = require("path")
+const request = require("request");
+const snekfetch = require("snekfetch");
 const queue = new Map();
 const YouTube = require("simple-youtube-api");
 const ytdl = require("ytdl-core");
@@ -106,5 +115,7 @@ client.on("warn", e => {
 client.on("error", e => {
   console.log(chalk.bgRed(e.replace(regToken, "that was redacted")));
 });
+
+//SALVO CODE GÜLE GÜLE KULLAN :)
 
 client.login(ayarlar.token);

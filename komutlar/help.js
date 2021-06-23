@@ -4,8 +4,8 @@ let prefix = '!'
 let müzik = new Discord.RichEmbed()  
 .setAuthor(message.author.username, message.author.avatarURL)
 .setColor('RANDOM')
-.addField('Rota Music | Help Panel')
-(`**!stop**
+.addField('Rota Music | Help Panel',`
+**!stop**
 **!resume**
 **!again**
 **!skip**
