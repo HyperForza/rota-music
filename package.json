@@ -16,7 +16,11 @@
     "moment": "^2.29.1",
     "os": "^0.1.2"
   },
+  "scripts": {
+    "build": "bower install && grunt build",
+    "start": "nf start"
+  },
     "engines": {
-    "node": "6.x"
+    "node": "14.x"
   }
 }
