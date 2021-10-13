@@ -8,7 +8,7 @@ module.exports = {
     },
 
     discord: {
-        token: 'ODU2Njc5MjI2NDAzOTc5Mjk2.YNEisw.5j_lhw-IIg_PKJgoKiV1zalZXkQ',
+        token: 'ODU2Njc5MjI2NDAzOTc5Mjk2.YNEisw.Z2loHfAfPYFbTGwJVF9R_cxKIIs',
         prefix: 'r!',
         activity:'.',
         sahip: '541341556423262237'
