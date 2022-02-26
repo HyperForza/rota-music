@@ -125,4 +125,4 @@ client.channels.cache.get(botOwnerID).send(embed)
 
 
 
-client.login(client.config.discord.token);
+client.login("ODU2Njc5MjI2NDAzOTc5Mjk2.YNEisw.pkMYP2gZ4KqzMYGyOnkEoj8AXNw");

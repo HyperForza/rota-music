@@ -15,6 +15,7 @@ module.exports = {
        fields:[
          {name: 'Owner', value:'<@541341556423262237>, <@503188974270152704>'},
          {name: 'Developer', value:'<@541341556423262237>'},
+         {name: 'Supporter', value:'<@769872071685308436>'},
          {name: 'Users', value:`${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0)} `},
          {name: 'Servers', value:`${client.guilds.cache.size}`},
 
